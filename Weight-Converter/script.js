@@ -24,3 +24,4 @@ function updateResults(){
 }
 
 inputElem.addEventListener("input", updateResults)
+
