@@ -10,7 +10,9 @@ btnEle.addEventListener("click", async function() {
         animeNameEle.innerText = "Updating..."
         animeImgEle.src = "loading.svg"
 
-        const response = await fetch ("https://api.jikan.moe/v4/characters?page=1")
+        const randomPage = Math.floor(Math.random()*50)+1;
+
+        const response = await fetch (`https://api.jikan.moe/v4/characters?page=${randomPage}`)
         const data = await response.json();
 
         const character = data.data[Math.floor(Math.random() * data.data.length)];
@@ -18,7 +20,7 @@ btnEle.addEventListener("click", async function() {
         btnEle.disabled = false;
         btnEle.innerText = 'Get Anime';
 
-        console.log(data);
+        console.log(randomPage);
         animeContainerEle.style.display = "block"
         animeImgEle.src = character.images.jpg.image_url;
         animeNameEle.innerText = character.name;
