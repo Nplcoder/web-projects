@@ -1,7 +1,7 @@
 body{
     margin:0;
     padding:0;
-    background-color: salmon;
+    background-color: rgb(238, 238, 238);
     font-family:Arial, Helvetica, sans-serif;
     height: 100vh;
     display: flex;
@@ -25,9 +25,26 @@ img {
     width: 350px;
     height:350px;
     border-radius: 50%;
-    border: 5px solid darkgray;
+    /* border: 5px solid rgb(6, 159, 55); */
     box-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    z-index: 1;
 }
+
+.clock::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    background:linear-gradient(to right, #f0dc03, #5fffda);
+    border-radius: 50%;
+    -webkit-mask:
+    radical-gradient(farthest-side, transparent calc(100% - 5px), white calc(100% - 5px));
+    mask: 
+    radial-gradient(farthest-side, transparent calc(100% - 5px), white calc(100% - 5px));
+    z-index: -1;
+}
+
+
 
 .numbers div{
     position: absolute;
@@ -38,25 +55,25 @@ img {
 }
 
 .twelve{
-   top:8px;
+   top:10px;
    left:50%;
    transform: translateX(-50%); 
 }
 
 .three{
     top:50%;
-    right:8px;
+    right:10px;
     transform: translateY(-50%);
 }
 
 .six{
-    bottom:8px;
+    bottom:10px;
     left:50%;
     transform: translateX(-50%);
 }
 
 .nine{
-    left:8px;
+    left:10px;
     top:50%;
     transform: translateY(-50%);
 }
